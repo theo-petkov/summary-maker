@@ -1,5 +1,5 @@
 {
-  "name": "quote-maker",
+  "name": "summary-maker",
   "version": "1.0.0",
   "description": "A service that can build a quote for a customer, given the relevant details of their property.",
   "scripts": {
