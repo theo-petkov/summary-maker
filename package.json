@@ -1,0 +1,25 @@
+{
+  "name": "quote-maker",
+  "version": "1.0.0",
+  "description": "A service that can build a quote for a customer, given the relevant details of their property.",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint '**/*.ts'",
+    "prettier": "prettier --check --config .prettierrc '**/*.ts'",
+    "tsc-verify": "rm -rf node_modules/@types/generic-pool && npx tsc -p tsconfig.json --noEmit",
+    "quality-checks": "npm run tsc-verify && npm run prettier && npm run lint"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.12.11",
+    "@swc/jest": "^0.2.39",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "jest": "^30.0.4",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3"
+  }
+}
