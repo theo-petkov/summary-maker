@@ -13,7 +13,6 @@ export default [
       prettier: prettier
     },
     rules: {
-      'no-console': 'warn',
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-explicit-any': 'warn',
       'prettier/prettier': 'error'

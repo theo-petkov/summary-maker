@@ -1,6 +1,6 @@
 import { calcPowerHeatLoss } from './calculate-power-heat-loss';
 
-describe('calcHeatLoss', () => {
+describe('calcPowerHeatLoss', () => {
   it('should give the correct output, given a valid input', () => {
     const heatLoss = 16412.5;
     const heatingDegreeDays = 2483;
