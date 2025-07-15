@@ -1,7 +1,7 @@
 {
   "name": "summary-maker",
   "version": "1.0.0",
-  "description": "A service that can build a quote for a customer, given the relevant details of their property.",
+  "description": "A service that can build a summary for a customer, given the relevant details of their property.",
   "scripts": {
     "test": "jest",
     "lint": "eslint '**/*.ts'",

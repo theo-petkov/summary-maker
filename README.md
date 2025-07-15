@@ -1,4 +1,4 @@
-# Heat Pump Installation Quote Maker
+# Heat Pump Installation Summary Maker
 
 ## Setup
 
