@@ -12,6 +12,12 @@ import {
 } from 'src/utils';
 import heatPumps from 'src/data/heat-pumps.json';
 
+/**
+ * Processes and calculates property summaries, provided the relevant property details and successful retrieval of weather data from a third party API
+ * @param house - A single object with house data
+ * @returns The summary for the given house
+ */
+
 export const processHouse = async (
   house: HouseData
 ): Promise<ValidSummary | LocationNotFoundSummary> => {

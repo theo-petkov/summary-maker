@@ -1,6 +1,5 @@
 import { AxiosResponse } from 'axios';
 import { processHouse } from './process-house';
-import { Decimal } from 'decimal.js';
 import {
   mockHouse,
   mockLocationData,

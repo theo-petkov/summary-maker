@@ -27,6 +27,8 @@ export const getLocationDataRetry = async (
       if (retryCount >= retries) {
         throw new Error((error as Error).message);
       }
+      // If this was a genuine flaky API, probably an exponential backoff would make more sense, and a more reasonable delay to account for throttling
+      await new Promise((resolve) => setTimeout(resolve, 200));
     }
   }
 };

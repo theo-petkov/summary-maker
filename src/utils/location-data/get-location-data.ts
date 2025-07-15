@@ -21,7 +21,7 @@ export const getLocationData = async (
   if (!apiKey) {
     throw new Error('API key not found');
   }
-  return await axios.get(`${apiEndpoint}?location=${location}`, {
+  return await axios.get(`${apiEndpoint}/v1/weather?location=${location}`, {
     headers: {
       'x-api-key': apiKey
     }

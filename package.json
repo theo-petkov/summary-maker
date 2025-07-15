@@ -7,7 +7,8 @@
     "lint": "eslint '**/*.ts'",
     "prettier": "prettier --check --config .prettierrc '**/*.ts'",
     "tsc-verify": "rm -rf node_modules/@types/generic-pool && npx tsc -p tsconfig.json --noEmit",
-    "quality-checks": "npm run tsc-verify && npm run prettier && npm run lint"
+    "quality-checks": "npm run tsc-verify && npm run prettier && npm run lint",
+    "make-summaries": "npx tsx src/execution/execution.ts"
   },
   "devDependencies": {
     "@swc/core": "^1.12.11",
@@ -20,6 +21,7 @@
     "eslint-plugin-prettier": "^5.5.1",
     "jest": "^30.0.4",
     "prettier": "^3.6.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   },
   "dependencies": {

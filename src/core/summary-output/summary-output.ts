@@ -22,7 +22,7 @@ export const summaryOutput = (
     if (summary.costBreakdown) {
       console.log('Cost Breakdown');
       summary.costBreakdown.forEach((costItem) => {
-        console.log(`${costItem.label}, `, costItem.cost);
+        console.log(`   ${costItem.label}, `, costItem.cost);
       });
     }
     if (summary.totalCostWithVAT) {

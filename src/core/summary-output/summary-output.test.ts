@@ -22,7 +22,7 @@ describe('summaryOutput', () => {
     );
     expect(consoleLogSpy).toHaveBeenNthCalledWith(
       9,
-      'Design & Supply of your Air Source Heat Pump System Components (8kW), ',
+      '   Design & Supply of your Air Source Heat Pump System Components (8kW), ',
       4216
     );
     expect(consoleLogSpy).toHaveBeenNthCalledWith(
