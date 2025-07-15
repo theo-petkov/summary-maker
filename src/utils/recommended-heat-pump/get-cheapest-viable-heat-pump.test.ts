@@ -1,9 +1,6 @@
 import type { HeatPumpData } from 'src/types';
 import { getCheapestViableHeatPump } from './get-cheapest-viable-heat-pump';
-import {
-  mockCheapHeatPump,
-  mockExpensiveHeatPump
-} from 'src/_mocks/heat-pumps';
+import { mockCheapHeatPump, mockExpensiveHeatPump } from 'src/_mocks';
 
 const mockAllHeatPumps: HeatPumpData[] = [
   mockExpensiveHeatPump,

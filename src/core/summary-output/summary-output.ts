@@ -1,5 +1,10 @@
 import type { LocationNotFoundSummary, ValidSummary } from 'src/types';
 
+/**
+ * A function to console log the property summaries, as per the desired output style
+ * @param summary - A property summary, either with a full set of data, or one where the location did not exist in the third party API
+ */
+
 export const summaryOutput = (
   summary: ValidSummary | LocationNotFoundSummary
 ): void => {

@@ -5,7 +5,7 @@ import type {
 } from 'src/types';
 import {
   calcHeatLoss,
-  getLocationData,
+  getLocationDataRetry,
   calcPowerHeatLoss,
   calcTotalCostWithVAT,
   getCheapestViableHeatPump
@@ -21,7 +21,16 @@ export const processHouse = async (
     house.insulationFactor
   );
 
-  const locationData = await getLocationData(house.designRegion);
+  const locationData = await getLocationDataRetry(house.designRegion);
+
+  if (!locationData) {
+    const locationNotFoundSummary: LocationNotFoundSummary = {
+      submissionId: house.submissionId,
+      estimatedHeatLoss: houseHeatLoss,
+      warning: 'Could not find design region'
+    };
+    return locationNotFoundSummary;
+  }
 
   const housePowerHeatLoss = calcPowerHeatLoss(
     houseHeatLoss,
