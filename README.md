@@ -59,16 +59,16 @@ This is a folder containing the executable code that will generate the summaries
 
 ## Explanations
 
-- The API_ENDPOINT and VAT_PERCENTAGE would be in Parameter Store, and API_KEY would in Secrets Manager (if using AWS). They are just environment variables here for simplicity, and must be committed to version control out of necessity, albeit this is clearly bad practice.
+- The API_ENDPOINT and VAT_PERCENTAGE would be in Parameter Store, and API_KEY would be in Secrets Manager (if using AWS). They are just environment variables here for simplicity, and must be committed to version control out of necessity, albeit this is clearly bad practice.
 
 ## Assumptions
 
-- The heat loss and power heat loss calculations are estimates, so there is no need to worry about floating point precision, and they will be rounded to 2 decimal places. The costs will be calculated with this in mind, as working with monetary values should be handled carefully.
-- The numbers seem dimensionally adjusted, so I have not performed any explicit conversions of units, and followed the formulas as they are. For example, the degreeDays returned by the API appears to be in hours, presumably the number of hours that meet the heat degree threshold. This matches what is needed to divide the heat loss by in order to get power heat loss (kW), as heat loss appears to be in kWh.
+- The heat loss and power heat loss calculations are estimates, so there is no need to worry about floating point precision, and they will be rounded to 2 decimal places. The costs calculations, on the other hand, will account for this, as working with monetary values should be handled carefully.
+- The numbers in the data provided seem dimensionally adjusted, so I have not performed any explicit conversions of units, and followed the formulas as they are. For example, the degreeDays returned by the API appears to be in hours, presumably the number of hours that meet the heat degree threshold. This matches what is needed to divide the heat loss by in order to get power heat loss (kW), as heat loss appears to be in kWh.
 - I assume that the recommended heat pump should be the least costly to the customer, that still has output above the power heat loss. Since the cost correlates with output capacity, I will use the lowest viable output capacity, rather than comparing all valid heat pumps for price.
 
 ## Future Possibilities
 
 - More observability can be implemented here, tracing, span attributes etc., especially to have statistics on the flaky third party API. Having that information would be key to knowing if the third party meets any SLA they may have made with us, and get them to try and remediate whatever is causing the issue.
-- This seems like a good candidate for an event driven architecture. As house data comes in (presumably one by one, as customers fille out the forms), this should trigger the processing on an individual basis, and populate a summary, ready to be surfaced when needed. This should improve speed, as the calculations and API calls (to a potentially slow API due to flakiness) would already be done by the time the summary is needed.
+- This seems like a good candidate for an event driven architecture. As house data comes in (presumably one by one, as customers fill out the forms), this should trigger the processing on an individual property basis, and populate a summary, ready to be surfaced when needed. This should improve speed, as the calculations and API calls (which may be slow due to flakiness) would already be done by the time the summary is needed.
 - I usually also have husky and lint-staged as part of a repository. This makes it so that git hooks can be used to run tests, quality checks, as well as other functionality. This ensures that quality gates can run locally and shorten the developer feedback loop. For example, running all tests before committing.
